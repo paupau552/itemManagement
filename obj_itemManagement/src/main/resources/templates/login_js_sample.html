@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{css/login.css}"/>
+<!-- jquery読み込み -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+</head>
+
+<body>
+<!-- 
+<div class="login-page">
+  <div class="form">
+  <form class="form" action="userInfo" method="post" target="" rel="noopener">
+    <h1>登録画面</h1>
+    <input type="text" placeholder="username" name="loginId" value="" id="inputText1" />
+    <input type="password" placeholder="password" name="loginPw" value="" id="inputText2" />
+    <button type="submit" value="送信" id="inputSubmit">login</button>
+    <p class="message">Already registered? <a href="#">Sign In</a></p>
+  </form>
+  <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+      </div>
+</div>
+ -->
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+</body>
+
+<script th:src="@{/js/login.js}"></script> 
+
+<script>
+alert('アラートだよ\n誰がなんと言おうと\n改行されたアラートだよ');
+</script>
+
+
+</html>

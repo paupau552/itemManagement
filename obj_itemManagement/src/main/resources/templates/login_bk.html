@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style type="text/css">
+body {
+	font-size:75%;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "MS Pゴシック", sans-serif;
+	line-height:1.5;
+	color: #333333;
+	background-color:#FFFFFF;
+}
+div#content{
+	width:60%;
+	margin:auto;
+}
+#content table{
+width:auto;
+border: 1px solid #CCCCCC;
+border-collapse: collapse;
+font-size:110%;
+}
+#content th{
+border:1px solid #CCCCCC;
+font-weight: normal;
+background-color:#F3F3F3;
+}
+#content td{
+padding-top:4px;
+padding-bottom:4px;
+border:1px solid #CCCCCC;
+}
+#content td:nth-child(1){
+text-align:center;
+padding:5px;
+}
+#content td:nth-child(2){
+padding-top:5px;
+padding-bottom:5px;
+padding-left:5px;
+padding-right:5px;
+}
+#content td:nth-child(3){
+text-align:center;
+}
+#content #tdItem2{
+width:58.5%;
+}
+h4 ~ p{
+color:red;
+}
+
+</style>
+
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+</head>
+
+<body>
+	<div id="content">
+	<h1>ログイン</h1>
+	<!-- 新ブラウザ開く
+		<form action="hello" method="post" target="_new" rel="noopener">
+		 -->
+		<form action="userInfo" method="post" target="" rel="noopener">
+		    <table border="border" cellspacing="0">
+		    <tbody>
+		        <tr>
+		            <th>ログインID</th>
+		            <td><input type="text" name="loginId" value="" id="inputText1" ></td>
+		        </tr>
+		            <tr>
+		            <th>パスワード</th>
+		            <td><input type="text" name="loginPw" value="" id="inputText2" ></td>
+		        </tr>
+		    </tbody>
+		    </table>
+		    <br>
+		    <input type="submit" value="送信" id="inputSubmit">
+		</form>
+	</div>
+</body>
+</html>
