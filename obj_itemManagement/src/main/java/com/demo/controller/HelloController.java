@@ -28,50 +28,45 @@ public class HelloController {
         return "login";
     }
     // registerUser画面に戻る
-	@RequestMapping(value="registerUser")
-    public String registerUser() {
-        return "registerUser";
+	@RequestMapping(value="toRegisterUser")
+    public String toRegisterUser() {
+        return "toRegisterUser";
 	}
 
-	// addItem追加し、にユーザ情報画面へ
-	@RequestMapping(value="addItem")
+	// addItem画面へ
+	@RequestMapping(value="toAddItem")
     public String addItem(Model model, AddItemBean addItemBean) {
 		model.addAttribute("addItemBean",addItemBean);
-        return "addItem";
+        return "toAddItem";
 	}
 	
 	// updateItem画面へ
-	@RequestMapping(value="updateItem")
-    public String delItem(Model model, updateItemBean updateItemBean) {
+	@RequestMapping(value="toUpdateItem")
+    public String toUpdateItem(Model model, updateItemBean updateItemBean) {
 		model.addAttribute("updateItemBean",updateItemBean);
-        return "updateItem";
+        return "toUpdateItem";
 	}
 
 	// deleteItem画面へ
-	@RequestMapping(value="deleteItem")
-    public String deleteItem(Model model, deleteItemBean deleteItemBean) {
+	@RequestMapping(value="toDeleteItem")
+    public String toDeleteItem(Model model, deleteItemBean deleteItemBean) {
 		model.addAttribute("updateItemBean",deleteItemBean);
-        return "deleteItem";
+        return "toDeleteItem";
 	}
 	
 	//createUserAccount画面新規ユーザ作成
     @RequestMapping(value="createUserAccount")
-    public String createUserAccount(Model model,@ModelAttribute("loginId") String arg1, @ModelAttribute("loginPw") String arg2) {
-    	String userId = arg1;
-    	String userPw = arg2;
-//        List<LoginBean> list = helloService.selectUser(arg1,arg2);
-        //List<HelloBean> list = helloService.selectUserInfo(arg1);
-        helloService.createUserAccount(arg1, arg2);
-        //model.addAttribute("list",list);
+    public String createUserAccount(Model model,@ModelAttribute("loginId") String userId, @ModelAttribute("loginPw") String userPw) {
+        helloService.createUserAccount(userId, userPw);
         return "login";
     }
 
 	//createItem画面新規アイテム作成
-    @RequestMapping(value="createItem")
-    public String createItem(Model model, @ModelAttribute("itemName") String itemName, @ModelAttribute("total") int total, 
+    @RequestMapping(value="addItem")
+    public String addItem(Model model, @ModelAttribute("itemName") String itemName, @ModelAttribute("total") int total, 
     		@ModelAttribute("cost") int cost, @ModelAttribute("auth") int auth, @ModelAttribute("userId") String userId) {
     	
-        helloService.createItem(itemName, total, cost, auth);
+        helloService.addItem(itemName, total, cost, auth);
     	
     	//userがしない場合、ログイン画面に戻る
     	if(userId == null){
@@ -85,11 +80,11 @@ public class HelloController {
     }
 
 	//updateItem画面アイテム更新
-    @RequestMapping(value="renewItem")
-    public String renewItem(Model model, @ModelAttribute("targetItemname") String targetItemname, @ModelAttribute("total") int total, 
+    @RequestMapping(value="updateItem")
+    public String updateItem(Model model, @ModelAttribute("targetItemname") String targetItemname, @ModelAttribute("total") int total, 
     		@ModelAttribute("cost") int cost, @ModelAttribute("auth") int auth, @ModelAttribute("userId") String userId) {
     	
-        helloService.renewItem(targetItemname, total,cost, auth);
+        helloService.updateItem(targetItemname, total,cost, auth);
     	
     	//userがしない場合、ログイン画面に戻る
     	if(userId == null){
@@ -103,11 +98,11 @@ public class HelloController {
     }
    
 	//removeItem画面アイテム更新
-    @RequestMapping(value="removeItem")
-    public String renewItem(Model model, @ModelAttribute("targetItemname") String targetItemname, 
+    @RequestMapping(value="deleteItem")
+    public String deleteItem(Model model, @ModelAttribute("targetItemname") String targetItemname, 
     		@ModelAttribute("userId") String userId) {
     	
-        helloService.removeItem(targetItemname);
+        helloService.deleteItem(targetItemname);
     	
     	//userがしない場合、ログイン画面に戻る
     	if(userId == null){

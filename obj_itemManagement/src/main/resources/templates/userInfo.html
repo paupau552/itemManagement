@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <form class="form" action="addItem" method="post" target="" rel="noopener">
+  <form class="form" action="toAddItem" method="post" target="" rel="noopener">
     <h1>ユーザの資材管理情報画面</h1>
     <p th:text="'ようこそ、 '  +  ${userId}"　name="userId" id="inputText1"></p>
     <input type="hidden" name="userId" th:value="${userId}" />
@@ -35,12 +35,12 @@
     <!-- <p class="message"> <a th:href="@{/addItem}">アイテム追加</a></p> -->
   </form>
   
-    <form class="form" action="updateItem" method="post" target="" rel="noopener">
+    <form class="form" action="toUpdateItem" method="post" target="" rel="noopener">
       <input type="hidden" name="userId" th:value="${userId}" />
       <button type="submit" value="送信" id="inputSubmit">アイテム更新</button>
     </form>
   
-    <form class="form" action="deleteItem" method="post" target="" rel="noopener">
+    <form class="form" action="toDeleteItem" method="post" target="" rel="noopener">
       <input type="hidden" name="userId" th:value="${userId}" />
       <button type="submit" value="送信" id="inputSubmit">アイテム削除</button>
     </form>

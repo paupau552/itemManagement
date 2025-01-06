@@ -12,8 +12,8 @@
 
 <body>
  
-  <form class="form" action="renewItem" method="post" target="" rel="noopener">
-    <h1>アイテム追加画面</h1>
+  <form class="form" action="updateItem" method="post" target="" rel="noopener">
+    <h1>アイテム更新画面</h1>
     <p th:text="'更新したアイテム情報を入力してください　：　 '  +  ${updateItemBean.userId}"></p>
     <input type="hidden" name="userId" th:value="${updateItemBean.userId}" />
     <input type="text" placeholder="targetItemname" name="targetItemname" value="" id="inputText1" />

@@ -25,27 +25,27 @@ public class HelloService {
         return helloMapper.selectUserInfo(userId);
     }
     
-    //userInfoSelect
+    //ユーザ情報取得
     public List<SelectUserBean> selectUser(String userId, String userPw){
         return helloMapper.selectUser(userId,userPw);
     }
     
-    //createUserAccount
+    //ユーザ作成
     public void createUserAccount(String userId, String userPw){
         helloMapper.createUserAccount(userId,userPw);
     }
-    //createItem
-    public void createItem(String itemName, int total, int cost, int auth){
-        helloMapper.createItem(itemName,total,cost,auth);
+    //アイテム追加
+    public void addItem(String itemName, int total, int cost, int auth){
+        helloMapper.addItem(itemName,total,cost,auth);
     }
     
-    //renewItem
-    public void renewItem(String targetItemname, int total, int cost, int auth){
-        helloMapper.renewItem(targetItemname,total,cost,auth);
+    //アイテム更新
+    public void updateItem(String targetItemname, int total, int cost, int auth){
+        helloMapper.updateItem(targetItemname,total,cost,auth);
     }
     
-    //removeItem
-    public void removeItem(String targetItemname){
-        helloMapper.removeItem(targetItemname);
+    //アイテム削除
+    public void deleteItem(String targetItemname){
+        helloMapper.deleteItem(targetItemname);
     }
 }

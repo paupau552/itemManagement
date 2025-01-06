@@ -16,8 +16,8 @@ public interface HelloMapper {
     List<UserInfoBean> selectUserInfo(String userId);
     List<SelectUserBean> selectUser(String userId, String userPw);
     void createUserAccount(String userId, String userPw);
-    void createItem(String itemName, int total, int cost, int auth);
-    void renewItem(String targetItemname, int total, int cost, int auth);
-    void removeItem(String targetItemname);
+    void addItem(String itemName, int total, int cost, int auth);
+    void updateItem(String targetItemname, int total, int cost, int auth);
+    void deleteItem(String targetItemname);
 
 }

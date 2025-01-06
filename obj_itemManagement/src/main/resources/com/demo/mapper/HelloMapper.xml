@@ -27,20 +27,20 @@
     </select>
 
     <!-- add_Item -->
-    <select id="createItem" resultType="com.demo.bean.CreateItemBean">
+    <insert id="addItem" >
         INSERT into item_info (itemName, total, cost, auth) 
         values(#{itemName} , #{total}, #{cost}, #{auth});
-    </select>
+    </insert>
         
    <!-- update_Item -->
-    <select id="renewItem" resultType="com.demo.bean.renewItemBean">
+    <update id="updateItem" >
         UPDATE item_info SET total = #{total}, cost = #{cost}, auth = #{auth} WHERE itemName = #{targetItemname};
-    </select>
+    </update>
         
    <!-- remove_Item -->
-    <select id="removeItem" resultType="com.demo.bean.removeItemBean">
+    <delete id="deleteItem" >
         DELETE FROM item_info WHERE itemName = #{targetItemname};
-    </select>
+    </delete>
     
     <!--SAMPLE  https://qiita.com/5zm/items/0864d6641c65f976d415
     SELECT文のWHERE句の条件でifを利用
