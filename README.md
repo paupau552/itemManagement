@@ -19,30 +19,10 @@
     │  pom.xml  
     │    
     ├─.mvn  
-    │  └─wrapper  
-    │          maven-wrapper.jar  
-    │          maven-wrapper.properties  
-    │          MavenWrapperDownloader.java  
-    │            
+    │  └─(略)  
     ├─.settings  
-    │      .jsdtscope  
-    │      org.eclipse.core.resources.prefs  
-    │      org.eclipse.jdt.apt.core.prefs  
-    │      org.eclipse.jdt.core.prefs  
-    │      org.eclipse.m2e.core.prefs  
-    │      org.eclipse.wst.common.component  
-    │      org.eclipse.wst.common.project.facet.core.xml  
-    │      org.eclipse.wst.jsdt.ui.superType.container  
-    │      org.eclipse.wst.jsdt.ui.superType.name  
-    │      org.eclipse.wst.validation.prefs  
-    │      org.springframework.ide.eclipse.prefs  
-    │        
+    │      (略)  
     ├─sample  
-    │  └─src  
-    │      └─main  
-    │          └─resources  
-    │              └─com  
-    │                  └─demo  
     ├─src  
     │  ├─main  
     │  │  ├─java  
@@ -151,10 +131,6 @@
         │  │          login.js  
         │  │            
         │  └─templates  
-        │          hello_bk.html  
-        │          login.html  
-        │          login_bk.html  
-        │          login_js_bk.html  
         │          toAddItem.html  
         │          toDeleteItem.html  
         │          toRegisterUser.html  
