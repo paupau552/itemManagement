@@ -76,10 +76,7 @@
     │  │  │  │          login.js  
     │  │  │  │            
     │  │  │  └─templates  
-    │  │  │          hello_bk.html  
     │  │  │          login.html  
-    │  │  │          login_bk.html  
-    │  │  │          login_js_bk.html  
     │  │  │          toAddItem.html  
     │  │  │          toDeleteItem.html  
     │  │  │          toRegisterUser.html  
