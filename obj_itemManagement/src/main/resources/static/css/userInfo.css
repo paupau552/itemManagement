@@ -1,5 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.form-item{
+	display:flex;
+}
+
+.form-select{
+	visibility:visible;
+}
+
+.form-insert{
+	visibility:visible;
+}
+
+.form-update{
+	visibility:visible;
+}
+
+.form-delete{
+	visibility:visible;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
