@@ -5,6 +5,8 @@
 <title>UserInfo</title>
 <!-- CSS読み込み -->
 <link rel="stylesheet" th:href="@{css/userInfo.css}"/>
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
 </head>
 <body>
 
@@ -14,14 +16,14 @@
     <input type="hidden" name="userId" th:value="${userId}" />
     <table border="1">
         <tr>
-            <th>使用者名</th>
+            <!-- <th>使用者名</th> -->
             <th>道具名</th>
             <th>数量</th>
             <th>金額</th>
             <!-- <th>ユーザPW</th> -->
         </tr>
         <tr th:each="userInfo : ${list}">
-        	<td th:text="${userInfo.userId}"></td>
+        	<!-- <td th:text="${userInfo.userId}"></td> -->
             <td th:text="${userInfo.itemName}"></td>
             <td th:text="${userInfo.total}"></td>
             <td th:text="${userInfo.cost}"></td>
@@ -46,6 +48,49 @@
     </form>
   
     <p class="message"> <a th:href="@{/login}">ログイン画面に戻る</a></p>
+ 　
+  <!--以外画面不遷移 DB操作  -->   
+  <select id="crudFunc">
+  　　　<option value="select">SELET</option>
+  　　　<option value="insert">INSERT</option>
+  　　　<option value="update">UPDATE</option>
+  　　　<option value="delete">DELETE</option>
+  </select>
+
+  <div class="form-item">
+    <form class="form-select" id="form-select" action="userInfo" method="post" target="" rel="noopener">
+      <input type="text" placeholder="username" name="loginId" value="" id="inputText1" />
+      <input type="password" placeholder="password" name="loginPw" value="" id="inputText2" />
+      <button type="submit" value="送信" id="inputSubmit">SELECT</button>
+    </form>
+  
+    <form class="form-insert" id="form-insert" action="addItem" method="post" target="" rel="noopener">
+      <input type="hidden" name="userId" th:value="${userId}" />
+      <input type="text" placeholder="itemname" name="itemName" value="" id="inputText1" />
+      <input type="text" placeholder="total" name="total" value="" id="inputText2" />
+      <input type="text" placeholder="cost" name="cost" value="" id="inputText3" />
+      <input type="text" placeholder="auth" name="auth" value="" id="inputText4" />    
+      <button type="submit" value="送信" id="inputSubmit">INSERT</button>
+    </form>
+  
+    <form class="form-update" id="form-update" action="updateItem" method="post" target="" rel="noopener">
+      <input type="hidden" name="userId" th:value="${userId}" />
+      <input type="text" placeholder="targetItemname" name="targetItemname" value="" id="inputText1" />
+      <input type="text" placeholder="total" name="total" value="" id="inputText2" />
+      <input type="text" placeholder="cost" name="cost" value="" id="inputText3" />
+      <input type="text" placeholder="auth" name="auth" value="" id="inputText4" />    
+      <button type="submit" value="送信" id="inputSubmit">UPDATE</button>
+    </form>
+  
+    <form class="form-delete" id="form-delete" action="deleteItem" method="post" target="" rel="noopener">
+      <input type="hidden" name="userId" th:value="${userId}" />
+      <input type="text" placeholder="targetItemname" name="targetItemname" value="" id="inputText1" />    
+      <button type="submit" value="送信" id="inputSubmit">DELETE</button>
+    </form>
+  </div>
     
 </body>
+
+<script th:src="@{/js/userInfo.js}"></script> 
+
 </html>
