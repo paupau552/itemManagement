@@ -1,6 +1,6 @@
 itemManagement
 
-利用springToolSuite 試作出材料管理系統 
+利用springToolSuite 試作出材料管理系統（不定時更新機能）
 
 請移動到 branch master
 
