@@ -11,10 +11,12 @@
 </head>
 
 <body>
-  <form class="form" action="userInfo" method="post" target="" rel="noopener">
+  <form class="form" action="userInfo" method="post" target="" rel="noopener"  th:object="${loginBean}" >
     <h1>登録画面</h1>
-    <input type="text" placeholder="username" name="loginId" value="" id="inputText1" />
-    <input type="password" placeholder="password" name="loginPw" value="" id="inputText2" />
+    <div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
+    <input type="text" placeholder="username" name="userId" value="" id="userId"  />
+    <div th:if="${#fields.hasErrors('userPw')}" th:errors="*{userPw}"></div>
+    <input type="password" placeholder="password" name="userPw" value="" id="userPw"  />
     <button type="submit" value="送信" id="inputSubmit">login</button>
     <p class="message">Not registered? <a th:href="@{/toRegisterUser}" >Create an account</a></p>
   </form>
