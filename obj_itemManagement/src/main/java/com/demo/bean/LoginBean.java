@@ -1,5 +1,7 @@
 package com.demo.bean;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +9,11 @@ import lombok.Setter;
 @Setter
 public class LoginBean {
 
+	@NotEmpty(message = "このフィールドは必須です")
 	String userId;
+	@NotEmpty(message = "このフィールドは必須です")
 	String userPw;
+	
 	public String getUserId() {
 		return userId;
 	}
