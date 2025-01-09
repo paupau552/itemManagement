@@ -2,18 +2,23 @@ package com.demo.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.demo.bean.SelectUserBean;
-import com.demo.bean.LoginBean;
+
 import com.demo.bean.UserInfoBean;
 import com.demo.bean.deleteItemBean;
 import com.demo.bean.updateItemBean;
 import com.demo.bean.AddItemBean;
+import com.demo.bean.LoginBean;
 import com.demo.service.HelloService;
 
 @Controller
@@ -25,6 +30,10 @@ public class HelloController {
     // login画面に戻る
     @RequestMapping(value="login")
     public String login(Model model) {
+    	LoginBean loginBean = new LoginBean();
+    	loginBean.setUserId("");
+    	loginBean.setUserPw("");
+    	model.addAttribute("loginBean", loginBean);
         return "login";
     }
     // registerUser画面に戻る
@@ -117,11 +126,14 @@ public class HelloController {
     
     // userInfo画面に遷移
     @RequestMapping(value="userInfo")
-    public String userInfo(Model model,@ModelAttribute("loginId") String arg1, @ModelAttribute("loginPw") String arg2) {
-    	String userId = arg1;
-    	String userPw = arg2;
-
-    	List<SelectUserBean> select_user = helloService.selectUser(arg1, arg2);
+    public String userInfo(@ModelAttribute @Validated  LoginBean loginBean, BindingResult result,Model model,@ModelAttribute("userId") String userId, @ModelAttribute("userPw") String userPw) {
+    	
+    	//入力確認
+        if (result.hasErrors()) {
+            return "login";
+          }
+    	
+    	List<SelectUserBean> select_user = helloService.selectUser(userId, userPw);
     	
     	//userがしない場合、ログイン画面に戻る
     	if(select_user.size() == 0){
