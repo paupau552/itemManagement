@@ -10,10 +10,9 @@
 </head>
 <body>
 
-  <form class="form" action="toAddItem" method="post" target="" rel="noopener">
     <h1>ユーザの資材管理情報画面</h1>
     <p th:text="'ようこそ、 '  +  ${userId}"　name="userId" id="inputText1"></p>
-    <input type="hidden" name="userId" th:value="${userId}" />
+    <hr>
     <table border="1">
         <tr>
             <!-- <th>使用者名</th> -->
@@ -31,10 +30,10 @@
              <td th:text="${userInfo.userPw}"></td> -->
         </tr>
     </table>
+
+  <form class="form" action="toAddItem" method="post" target="" rel="noopener">
+    <input type="hidden" name="userId" th:value="${userId}" />
     <button type="submit" value="送信" id="inputSubmit">アイテム追加</button>
-    
-    <!-- <p class="message"> <a href="http://localhost:8080/login">ログイン画面に戻る</a></p> -->
-    <!-- <p class="message"> <a th:href="@{/addItem}">アイテム追加</a></p> -->
   </form>
   
     <form class="form" action="toUpdateItem" method="post" target="" rel="noopener">
@@ -47,9 +46,7 @@
       <button type="submit" value="送信" id="inputSubmit">アイテム削除</button>
     </form>
   
-    <p class="message"> <a th:href="@{/login}">ログイン画面に戻る</a></p>
- 　
-  <!--以外画面不遷移 DB操作  -->   
+  <!--画面不遷移 DB操作  -->   
   <select id="crudFunc">
   　　　<option value="select">SELET</option>
   　　　<option value="insert">INSERT</option>
@@ -59,8 +56,8 @@
 
   <div class="form-item">
     <form class="form-select" id="form-select" action="userInfo" method="post" target="" rel="noopener">
-      <input type="text" placeholder="username" name="loginId" value="" id="inputText1" />
-      <input type="password" placeholder="password" name="loginPw" value="" id="inputText2" />
+      <input type="text" placeholder="username" name="userId" value="" id="inputText1" />
+      <input type="password" placeholder="password" name="userPw" value="" id="inputText2" />
       <button type="submit" value="送信" id="inputSubmit">SELECT</button>
     </form>
   
@@ -88,6 +85,8 @@
       <button type="submit" value="送信" id="inputSubmit">DELETE</button>
     </form>
   </div>
+
+  <p class="message"> <a th:href="@{/login}">ログイン画面に戻る</a></p>
     
 </body>
 
