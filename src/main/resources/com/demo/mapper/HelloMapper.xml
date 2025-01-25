@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.HelloMapper">
+<!-- 
+    <select id="selectEmpAll" resultType="com.demo.bean.HelloBean">
+        select * from emp_name
+    </select>
+   -->  
+    <!-- creacte user -->
+    <insert id="createUserAccount" parameterType="com.demo.bean.CreateUserAccountBean" 
+    flushCache="true" timeout="20" >
+        insert into user_account (userId, password, auth) values(#{userId} , #{userPw}, 1) 
+    </insert>
+    
+    <!-- get user_account -->
+    <select id="selectUser" resultType="com.demo.bean.SelectUserBean">
+        select * from user_account where userId = #{userId} and password = #{userPw} LIMIT 1
+    </select>
+    
+    <!-- get user_info -->
+    <select id="selectUserInfo" resultType="com.demo.bean.UserInfoBean">
+        SELECT user_account.userId, item_info.itemName,  item_info.total, item_info.cost  FROM user_account
+        INNER JOIN item_info ON user_account.auth = item_info.auth
+        WHERE user_account.userId = #{userId}
+    </select>
+
+    <!-- add_Item -->
+    <insert id="addItem" >
+        INSERT into item_info (itemName, total, cost, auth) 
+        values(#{itemName} , #{total}, #{cost}, #{auth});
+    </insert>
+        
+   <!-- update_Item -->
+    <update id="updateItem" >
+        UPDATE item_info SET total = #{total}, cost = #{cost}, auth = #{auth} WHERE itemName = #{targetItemname};
+    </update>
+        
+   <!-- remove_Item -->
+    <delete id="deleteItem" >
+        DELETE FROM item_info WHERE itemName = #{targetItemname};
+    </delete>
+    
+    <!--SAMPLE  https://qiita.com/5zm/items/0864d6641c65f976d415
+    SELECT文のWHERE句の条件でifを利用
+<select id="searchItemByCriteria" parameterType="ItemCriteria" resultType="Item">
+    SELECT
+        item_code,
+        item_name,
+        status,
+        created_at
+    FROM
+        item
+    WHERE
+        item_name like #{itemName}
+        <if test="afterCreated != null">
+            <![CDATA[
+                AND created_at > #{afterCreated}
+            ]]>
+        </if>
+</select>
+
+SELECT文のIN句でforeachを利用
+<select id="searchItemByStatus" parameterType="list" resultType="Item">
+    SELECT
+        item_code,
+        item_name,
+        status,
+        created_at
+    FROM
+        item
+    WHERE
+    <foreach item="statusCode" collection="list"
+        open="status IN (" separator="," close=")">
+        #{statusCode}
+    </foreach>
+</select>
+    
+     -->
+    
+    
+</mapper>

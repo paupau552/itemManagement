@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{css/updateItem.css}"/>
+</head>
+
+<body>
+ 
+  <form class="form" action="updateItem" method="post" target="" rel="noopener">
+    <h1>アイテム更新画面</h1>
+    <p th:text="'更新したアイテム情報を入力してください　：　 '  +  ${updateItemBean.userId}"></p>
+    <input type="hidden" name="userId" th:value="${updateItemBean.userId}" />
+    <input type="text" placeholder="targetItemname" name="targetItemname" value="" id="inputText1" />
+    <input type="text" placeholder="total" name="total" value="" id="inputText2" />
+    <input type="text" placeholder="cost" name="cost" value="" id="inputText3" />
+    <input type="text" placeholder="auth" name="auth" value="" id="inputText4" />    
+    <button type="submit" value="送信" id="inputSubmit">UPDATE ITEM</button>
+    <p class="message"> <a th:href="@{/login}">ログイン画面に戻る</a></p>
+  </form>
+
+</body>
+
+</html>

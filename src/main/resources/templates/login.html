@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{css/login.css}"/>
+</head>
+
+<body>
+  <form class="form" action="userInfo" method="post" target="" rel="noopener"  th:object="${loginBean}" >
+    <h1>登録画面</h1>
+    <div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
+    <input type="text" placeholder="username" name="userId" value="" id="userId"  />
+    <div th:if="${#fields.hasErrors('userPw')}" th:errors="*{userPw}"></div>
+    <input type="password" placeholder="password" name="userPw" value="" id="userPw"  />
+    <button type="submit" value="送信" id="inputSubmit">login</button>
+    <p class="message">Not registered? <a th:href="@{/toRegisterUser}" >Create an account</a></p>
+  </form>
+</body>
+
+</html>
