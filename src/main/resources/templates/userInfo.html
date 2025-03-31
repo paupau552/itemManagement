@@ -26,27 +26,20 @@
             <td th:text="${userInfo.itemName}"></td>
             <td th:text="${userInfo.total}"></td>
             <td th:text="${userInfo.cost}"></td>
+            <td>
+                <form th:action="deleteItem" method="post">
+	                <!-- <input type="checkbox" id="checkBoo1" name="checkBoo" value="true"> -->
+	                <input type="hidden" name="userId" th:value="${userId}" />
+	                <input type="hidden" name="targetItemname" th:value="${userInfo.itemName}">
+	                <input type="submit" value="削除">
+                </form>
+            </td>
             <!--<td th:text="${userInfo.name}"></td>
              <td th:text="${userInfo.userPw}"></td> -->
         </tr>
     </table>
-
-  <form class="form" action="toAddItem" method="post" target="" rel="noopener">
-    <input type="hidden" name="userId" th:value="${userId}" />
-    <button type="submit" value="送信" id="inputSubmit">アイテム追加</button>
-  </form>
-  
-    <form class="form" action="toUpdateItem" method="post" target="" rel="noopener">
-      <input type="hidden" name="userId" th:value="${userId}" />
-      <button type="submit" value="送信" id="inputSubmit">アイテム更新</button>
-    </form>
-  
-    <form class="form" action="toDeleteItem" method="post" target="" rel="noopener">
-      <input type="hidden" name="userId" th:value="${userId}" />
-      <button type="submit" value="送信" id="inputSubmit">アイテム削除</button>
-    </form>
-  
-  <!--画面不遷移 DB操作  -->   
+    <hr>  
+  <!--　画面遷移しない　 DB操作  -->   
   <select id="crudFunc">
   　　　<option value="select">SELET</option>
   　　　<option value="insert">INSERT</option>
@@ -85,6 +78,22 @@
       <button type="submit" value="送信" id="inputSubmit">DELETE</button>
     </form>
   </div>
+
+  <!--　画面遷移  -->
+  <form class="form" action="toAddItem" method="post" target="" rel="noopener">
+    <input type="hidden" name="userId" th:value="${userId}" />
+    <button type="submit" value="送信" id="inputSubmit">アイテム追加</button>
+  </form>
+  
+  <form class="form" action="toUpdateItem" method="post" target="" rel="noopener">
+    <input type="hidden" name="userId" th:value="${userId}" />
+    <button type="submit" value="送信" id="inputSubmit">アイテム更新</button>
+  </form>
+  
+  <form class="form" action="toDeleteItem" method="post" target="" rel="noopener">
+    <input type="hidden" name="userId" th:value="${userId}" />
+    <button type="submit" value="送信" id="inputSubmit">アイテム削除</button>
+  </form>
 
   <p class="message"> <a th:href="@{/login}">ログイン画面に戻る</a></p>
     
