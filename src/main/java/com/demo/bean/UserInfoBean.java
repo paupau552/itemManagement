@@ -11,6 +11,7 @@ public class UserInfoBean {
 	String itemName;
 	int total;
 	int cost;
+	boolean checkDelFlg;
 	
 	public String getUserId() {
 		return userId;
@@ -35,6 +36,12 @@ public class UserInfoBean {
 	}
 	public void setCost(int cost) {
 		this.cost = cost;
+	}
+	public boolean isCheckDelFlg() {
+		return checkDelFlg;
+	}
+	public void setCheckDelFlg(boolean checkDelFlg) {
+		this.checkDelFlg = checkDelFlg;
 	}
 
 	
