@@ -1,0 +1,8 @@
+2025-04-01 21:53:05.602 [INFO ] [main] org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize:171 - Initializing ExecutorService 'applicationTaskExecutor'
+2025-04-01 21:53:06.054 [INFO ] [Thread-2] org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown:208 - Shutting down ExecutorService 'applicationTaskExecutor'
+2025-04-01 21:54:58.223 [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:90 - Tomcat initialized with port(s): 8080 (http)
+2025-04-01 21:54:58.286 [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:284 - Root WebApplicationContext: initialization completed in 596 ms
+2025-04-01 21:54:58.512 [INFO ] [main] org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize:171 - Initializing ExecutorService 'applicationTaskExecutor'
+2025-04-01 21:54:58.684 [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:202 - Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-01 21:55:24.059 [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet.initServletBean:524 - Initializing Servlet 'dispatcherServlet'
+2025-04-01 21:55:24.062 [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet.initServletBean:546 - Completed initialization in 3 ms
